@@ -1,4 +1,4 @@
-﻿from rawaj.metrics import confusion_counts, precision_recall, precision_at_k, expected_cost, choose_threshold
+from rawaj.metrics import confusion_counts, precision_recall, precision_at_k, expected_cost, choose_threshold
 from rawaj.audit import audit_extract
 import pandas as pd
 
@@ -25,5 +25,5 @@ def test_audit_extract():
     df = pd.DataFrame({"label": [1, 0, 1], "value": [5, 5, 5]})
     result = audit_extract(df, "label")
     assert result["rows"] == 3
-    assert result["duplicate_rows"] == 0
+    assert result["duplicate_rows"] == 1
     assert "value" in result["constant_columns"]
